@@ -1,0 +1,45 @@
+services:
+  backend:
+    build: 
+      context: ./backend
+    container_name: monitor-backend
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - mongo
+      - redis
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: monitor-frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  mongo:
+    image: mongo:8
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+
+volumes:
+  mongo-data:
+  redis-data:
