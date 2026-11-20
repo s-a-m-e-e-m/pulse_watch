@@ -1,0 +1,220 @@
+@import "tailwindcss";
+
+* {
+    font-family: Inter, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+@layer base {
+    html {
+        @apply scroll-smooth;
+    }
+
+    body {
+        @apply min-h-screen bg-[#0a0a0a] text-[#ededed] antialiased;
+        background-image: radial-gradient(circle at 50% -18rem, #1d1d1d 0, transparent 34rem);
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+        @apply box-border;
+    }
+
+    a {
+        @apply no-underline transition-colors duration-400 ease-out;
+    }
+
+    td {
+        @apply border-t border-[#333333];
+    }
+
+    tr {
+        @apply transition-colors duration-400 ease-out hover:bg-[#222222];
+    }
+
+    button {
+        @apply cursor-pointer transition-colors duration-400 ease-out;
+    }
+
+    ::selection {
+        @apply bg-white text-black;
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply rounded-full bg-[#333];
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-[#0a0a0a];
+    }
+}
+
+@layer components {
+    .btn {
+        @apply rounded-lg px-4 py-2 text-sm font-medium transition-colors duration-400 ease-out;
+    }
+
+    .btn-primary,
+    .btn-success,
+    .btn-danger {
+        @apply rounded-lg bg-white px-4 py-2 text-sm font-medium text-black transition-colors duration-400 ease-out hover:bg-[#d4d4d4];
+    }
+
+    .btn-danger {
+        @apply bg-red-500 text-white hover:bg-red-600;
+    }
+
+    .btn-warning {
+        @apply rounded-lg bg-amber-500 px-4 py-2 text-sm font-medium text-black transition-colors duration-400 ease-out hover:bg-amber-600;
+    }
+
+    .btn-secondary {
+        @apply rounded-lg bg-blue-500 px-4 py-2 text-sm font-medium text-black transition-colors duration-400 ease-out hover:bg-blue-600;
+    }
+
+    .input,
+    .textarea,
+    .select {
+        @apply w-full rounded-lg border border-[#333] bg-[#0a0a0a] px-3 py-2.5 text-sm text-[#ededed] outline-none transition-colors duration-400 ease-out;
+        @apply placeholder:text-[#666] focus:border-[#888] focus:ring-1 focus:ring-[#888];
+    }
+
+    .textarea {
+        @apply min-h-28 resize-y;
+    }
+
+    .select {
+        @apply appearance-none;
+    }
+
+    .checkbox {
+        @apply h-4 w-4 cursor-pointer accent-white;
+    }
+
+    .card {
+        @apply rounded-xl border border-[#262626] bg-[#111] p-4 shadow-none sm:p-6;
+    }
+
+    .page-title {
+        @apply text-2xl font-semibold tracking-[-0.04em] text-white sm:text-3xl;
+    }
+
+    .section-title {
+        @apply text-xl font-medium tracking-tight text-white;
+    }
+
+    .muted {
+        @apply text-[#888];
+    }
+
+    .badge {
+        @apply rounded-full px-2.5 py-1 text-xs font-medium;
+    }
+
+    .badge-up {
+        @apply rounded-full bg-emerald-500/10 px-2.5 py-1 text-xs font-medium text-emerald-400;
+    }
+
+    .badge-down {
+        @apply rounded-full bg-red-500/10 px-2.5 py-1 text-xs font-medium text-red-400;
+    }
+
+    .badge-warning {
+        @apply rounded-full bg-amber-500/10 px-2.5 py-1 text-xs font-medium text-amber-400;
+    }
+
+    .badge-info {
+        @apply rounded-full bg-white/10 px-2.5 py-1 text-xs font-medium text-[#d4d4d4];
+    }
+
+    .table-wrapper {
+        @apply overflow-x-auto rounded-xl border border-[#262626];
+    }
+
+    .table {
+        @apply w-full border-collapse;
+    }
+
+    .table th {
+        @apply whitespace-nowrap bg-[#111] px-3 py-3 text-left text-xs font-medium uppercase tracking-wide text-[#888] sm:px-6;
+    }
+
+    .table td {
+        @apply border-t border-[#262626] px-3 py-4 text-sm sm:px-6;
+    }
+
+    .table tbody tr {
+        @apply transition-colors duration-400 ease-out hover:bg-[#171717];
+    }
+
+    .health-log-row {
+        @apply transition-colors duration-400 ease-out;
+    }
+
+    .health-log-row:hover {
+        background-color: transparent;
+        border-bottom-color: #666;
+    }
+
+    .form-group {
+        @apply flex flex-col gap-2;
+    }
+
+    .form-label,
+    .label {
+        @apply block text-sm font-medium text-[#a1a1a1];
+    }
+
+    .label {
+        @apply mb-2;
+    }
+
+    .container {
+        @apply mx-auto max-w-7xl px-4 sm:px-6 md:px-8;
+    }
+
+    .page {
+        @apply mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8 md:px-8;
+    }
+
+    .panel {
+        @apply rounded-xl border border-[#262626] bg-[#111] p-5;
+    }
+
+    .link {
+        @apply text-[#ededed] underline decoration-[#555] underline-offset-4 transition-colors duration-400 ease-out hover:decoration-white;
+    }
+
+    .empty-state {
+        @apply flex flex-col items-center justify-center rounded-xl border border-dashed border-[#333] bg-[#111] py-20 text-[#888];
+    }
+
+    .loader {
+        @apply flex min-h-screen items-center justify-center;
+    }
+}
+
+/* Existing feature components use these utility names directly. Keep them on the same palette. */
+.bg-gray-100 { background-color: #0a0a0a !important; }
+.bg-gray-50 { background-color: #171717 !important; }
+.bg-white { background-color: #111 !important; }
+.bg-gray-200 { background-color: #1f1f1f !important; }
+.bg-gray-700, .bg-gray-800, .bg-gray-900 { background-color: #111 !important; }
+.text-gray-800, .text-gray-700 { color: #ededed !important; }
+.text-gray-600, .text-gray-500 { color: #888 !important; }
+.text-gray-300 { color: #a1a1a1 !important; }
+.border-gray-200, .border-gray-300 { border-color: #262626 !important; }
+.bg-blue-100 { background-color: #ffffff12 !important; }
+.text-blue-700, .text-blue-600 { color: #ededed !important; }
+.bg-green-100 { background-color: #10b9811a !important; }
+.text-green-700, .text-green-600 { color: #34d399 !important; }
+.bg-red-100 { background-color: #ef44441a !important; }
+.text-red-700, .text-red-600 { color: #f87171 !important; }
+.bg-yellow-100 { background-color: #f59e0b1a !important; }
+.text-yellow-700, .text-yellow-600 { color: #fbbf24 !important; }
+.bg-orange-100 { background-color: #f973161a !important; }
+.text-orange-700 { color: #fb923c !important; }
