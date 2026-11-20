@@ -4,7 +4,6 @@ import {
     FaExclamationTriangle,
     FaServer,
 } from "react-icons/fa";
-import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { useAuth } from "../../features/auth/hooks/useAuth";
  
 const Sidebar = () => {
